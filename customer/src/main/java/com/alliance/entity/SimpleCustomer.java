@@ -1,7 +1,9 @@
 package com.alliance.entity;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,12 +13,15 @@ import javax.persistence.Id;
 public class SimpleCustomer implements Serializable {
 
 	private static final long serialVersionUID = -3009157732242241606L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private BigInteger id;
 
+	@Column(nullable = false, columnDefinition = "varchar(20)")
 	private String firstName;
 
+	@Column(nullable = false, columnDefinition = "varchar(20)")
 	private String lastName;
 
 	public SimpleCustomer() {
@@ -26,8 +31,8 @@ public class SimpleCustomer implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-	
-	public long getId() {
+
+	public BigInteger getId() {
 		return id;
 	}
 
@@ -47,8 +52,4 @@ public class SimpleCustomer implements Serializable {
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
-	}
 }

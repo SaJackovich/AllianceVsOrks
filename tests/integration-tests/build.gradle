@@ -1,0 +1,26 @@
+project(':tests:integration-tests') {
+
+    apply plugin: 'java'
+
+    group 'com.alliance'
+    version '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile project(':customer')
+        compile project(':ultra-customer')
+        compile project(':utils')
+        compile group: 'ch.vorburger.mariaDB4j', name: 'mariaDB4j', version: '2.2.3'
+        compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.3.0'
+        compile group: 'org.testcontainers', name: 'mariadb', version: '1.11.2'
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.6.RELEASE'
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.6.RELEASE'
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+}

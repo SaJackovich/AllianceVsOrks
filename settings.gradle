@@ -1,6 +1,11 @@
-rootProject.name = 'demo'
+rootProject.name = 'alliance-vs-orks'
 include 'main'
 include 'customer'
 include 'utils'
 include 'general-config'
+include 'ultra-customer'
+include 'tests'
+include 'integration-tests'
+include 'tests:integration-tests'
+findProject(':tests:integration-tests')?.name = 'integration-tests'
 
