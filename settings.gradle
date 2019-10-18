@@ -1,0 +1,6 @@
+rootProject.name = 'demo'
+include 'main'
+include 'customer'
+include 'utils'
+include 'general-config'
+
