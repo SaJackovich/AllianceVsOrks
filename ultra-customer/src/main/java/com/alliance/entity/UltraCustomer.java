@@ -5,6 +5,8 @@ import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,7 @@ public class UltraCustomer implements Serializable {
     @Column(nullable = false, columnDefinition = "varchar(20)")
     private String lastName;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "decimal", length = 1)
     private SuperPower superPower;
 
