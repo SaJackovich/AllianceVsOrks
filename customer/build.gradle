@@ -12,6 +12,7 @@ project(':customer') {
     }
 
     dependencies {
+        compile project(':ultra-customer')
         compile project(':utils')
         testCompile group: 'junit', name: 'junit', version: '4.12'
     }
