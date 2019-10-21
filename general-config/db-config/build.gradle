@@ -1,8 +1,8 @@
-project(':general-config') {
+project(':general-config:db-config') {
 
     apply plugin: 'java'
 
-    group 'com.example'
+    group 'com.alliance'
     version '0.0.1-SNAPSHOT'
 
     sourceCompatibility = 1.8
@@ -16,5 +16,5 @@ project(':general-config') {
         testCompile group: 'junit', name: 'junit', version: '4.12'
     }
 
-}
 
+}

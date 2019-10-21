@@ -22,7 +22,7 @@ project(':main'){
     dependencies {
         compile project(':customer')
         compile project(':ultra-customer')
-        compile project(':general-config')
+        compile project(':general-config:db-config')
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

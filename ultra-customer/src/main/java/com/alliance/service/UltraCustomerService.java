@@ -6,4 +6,6 @@ public interface UltraCustomerService {
 
     UltraCustomer saveUltraCustomer(UltraCustomer ultraCustomer);
 
+    UltraCustomer saveUltraCustomer(String name, String lastName, String power);
+
 }

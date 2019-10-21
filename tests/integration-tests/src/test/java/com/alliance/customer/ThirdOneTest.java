@@ -56,14 +56,13 @@ public class ThirdOneTest{
     private CustomerService customerService;
 
     @Test
-    public void should_find_no_customers_if_repository_is_empty() throws InterruptedException {
+    public void shouldFindNoCustomersIfRepositoryIsEmpty() {
         Iterable<SimpleCustomer> customers = repository.findAll();
         assertThat(customers).isEmpty();
-
     }
 
     @Test
-    public void should_store_a_customer() throws InterruptedException {
+    public void shouldStoreCustomer() {
         SimpleCustomer customer = repository.save(new SimpleCustomer("Jack", "Smith"));
 
         assertThat(customer).hasFieldOrPropertyWithValue("firstName", "Jack");
@@ -71,8 +70,7 @@ public class ThirdOneTest{
     }
 
     @Test
-    public void should_save_customer_by_service() throws InterruptedException {
-
+    public void shouldSaveCustomerByService() {
         customerService.saveCustomer("John", "Smith");
         Iterator<SimpleCustomer> customers = repository.findAll().iterator();
         assertTrue(customers.hasNext());
@@ -80,9 +78,8 @@ public class ThirdOneTest{
     }
 
     @Test
-    public void should_save_ultra_customer() throws InterruptedException {
-
-        customerService.saveUltraCustomer(JOHN, "Smith", SuperPower.FIRE_MAGIC);
+    public void shouldSaveUltraCustomer() {
+        customerService.saveUltraCustomer(JOHN, "Smith", SuperPower.SPEED);
         Iterator<UltraCustomer> ultraCustomers
                 = ultraCustomerRepository.findAll().iterator();
         assertTrue(ultraCustomers.hasNext());
@@ -93,7 +90,8 @@ public class ThirdOneTest{
     @Sql(scripts = {
             "classpath:clean_create_tables.sql",
             "classpath:add_actual_data.sql"})
-    public void test_with_sql_script() throws InterruptedException {
+    public void testWithSqlScrips() {
+
         Iterator<UltraCustomer> ultraCustomers
                 = ultraCustomerRepository.findAll().iterator();
     }
