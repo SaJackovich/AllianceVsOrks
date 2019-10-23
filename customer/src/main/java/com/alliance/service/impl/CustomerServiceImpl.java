@@ -18,7 +18,10 @@ public class CustomerServiceImpl implements CustomerService {
     private UltraCustomerServiceImpl ultraCustomerServiceImpl;
 
     public SimpleCustomer saveCustomer(String firstname, String lastname){
-        return customerRepository.save(new SimpleCustomer(firstname, lastname));
+        SimpleCustomer simpleCustomer = new SimpleCustomer();
+        simpleCustomer.setFirstName(firstname);
+        simpleCustomer.setLastName(lastname);
+        return customerRepository.save(simpleCustomer);
     }
 
     public UltraCustomer saveUltraCustomer(String firstname, String lastname, SuperPower power) {

@@ -2,12 +2,16 @@ package com.alliance.entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.alliance.converter.AdditionalInfoConverter;
 
 @Entity
 public class SimpleCustomer implements Serializable {
@@ -24,12 +28,29 @@ public class SimpleCustomer implements Serializable {
 	@Column(nullable = false, columnDefinition = "varchar(20)")
 	private String lastName;
 
-	public SimpleCustomer() {
+	@Convert(converter = AdditionalInfoConverter.class)
+	private AdditionalInfo additionalInfo;
+
+	@Column
+	private LocalDateTime sysCreatedDatetime;
+
+	@Column
+	private LocalDateTime sysUpdatedDatetime;
+
+	public LocalDateTime getSysCreatedDatetime() {
+		return sysCreatedDatetime;
 	}
 
-	public SimpleCustomer(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public void setSysCreatedDatetime(LocalDateTime sysCreatedDatetime) {
+		this.sysCreatedDatetime = sysCreatedDatetime;
+	}
+
+	public LocalDateTime getSysUpdatedDatetime() {
+		return sysUpdatedDatetime;
+	}
+
+	public void setSysUpdatedDatetime(LocalDateTime sysUpdatedDatetime) {
+		this.sysUpdatedDatetime = sysUpdatedDatetime;
 	}
 
 	public BigInteger getId() {
@@ -52,4 +73,11 @@ public class SimpleCustomer implements Serializable {
 		this.lastName = lastName;
 	}
 
+	public AdditionalInfo getAdditionalInfo() {
+		return additionalInfo;
+	}
+
+	public void setAdditionalInfo(AdditionalInfo additionalInfo) {
+		this.additionalInfo = additionalInfo;
+	}
 }

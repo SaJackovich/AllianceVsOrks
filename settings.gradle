@@ -13,4 +13,3 @@ include 'general-config:db-config'
 findProject(':general-config:db-config')?.name = 'db-config'
 include 'web-parent:ultra-customer'
 findProject(':web-parent:ultra-customer')?.name = 'ultra-customer'
-

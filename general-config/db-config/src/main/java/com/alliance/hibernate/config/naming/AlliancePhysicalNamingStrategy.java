@@ -62,7 +62,8 @@ public class AlliancePhysicalNamingStrategy implements PhysicalNamingStrategy {
         StringBuilder joined = new StringBuilder();
         for (String part : parts) {
             char firstChar = part.charAt(0);
-            part = part.replace(firstChar, toUpperCase(firstChar));
+            String upperChar = String.valueOf(toUpperCase(firstChar));
+            part = part.replaceFirst(String.valueOf(firstChar), upperChar);
             joined.append(separator).append(part);
             if ( firstPass ) {
                 firstPass = false;
