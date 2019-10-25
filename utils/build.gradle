@@ -12,6 +12,7 @@ project (':utils') {
     }
 
     dependencies {
+        compile group: 'org.jetbrains', name: 'annotations', version: '17.0.0'
         compile group: 'ch.vorburger.mariaDB4j', name: 'mariaDB4j', version: '2.2.3'
         compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.3.0'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.8.RELEASE'

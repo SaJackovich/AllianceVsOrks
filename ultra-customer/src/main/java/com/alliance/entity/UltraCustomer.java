@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.alliance.entity.type.SuperPower;
+import com.alliance.type.SuperPower;
 
 @Entity
 public class UltraCustomer implements Serializable {
@@ -32,11 +32,6 @@ public class UltraCustomer implements Serializable {
 
     public BigInteger getId() {
         return id;
-    }
-
-    public UltraCustomer setId(BigInteger id) {
-        this.id = id;
-        return this;
     }
 
     public String getFirstName() {

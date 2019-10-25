@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.alliance.entity.SimpleCustomer;
 import com.alliance.entity.UltraCustomer;
-import com.alliance.entity.type.SuperPower;
 import com.alliance.repository.CustomerRepository;
 import com.alliance.service.CustomerService;
 
@@ -24,11 +23,8 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(simpleCustomer);
     }
 
-    public UltraCustomer saveUltraCustomer(String firstname, String lastname, SuperPower power) {
-        return ultraCustomerServiceImpl.saveUltraCustomer(new UltraCustomer()
-                .setFirstName(firstname)
-                .setLastName(lastname)
-                .setSuperPower(power));
+    public UltraCustomer saveUltraCustomer(UltraCustomer ultraCustomer) {
+        return ultraCustomerServiceImpl.saveUltraCustomer(ultraCustomer);
     }
 
 }

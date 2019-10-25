@@ -26,14 +26,14 @@ public class AdditionalInfoConverterTest {
     public void shouldConvertIntegerListToString() {
         String actual = converter.convertToDatabaseColumn(new AdditionalInfo(integers));
 
-        assertEquals(actual, CONVERTED_INTEGERS);
+        assertEquals(CONVERTED_INTEGERS, actual);
     }
 
     @Test
     public void shouldConvertStringToIntegerList() {
         AdditionalInfo actual = converter.convertToEntityAttribute(CONVERTED_INTEGERS);
 
-        assertEquals(actual, new AdditionalInfo(integers));
+        assertEquals(new AdditionalInfo(integers), actual);
     }
 
 }

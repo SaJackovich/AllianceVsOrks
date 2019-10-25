@@ -21,6 +21,9 @@ public class AdditionalInfoConverter implements AttributeConverter<AdditionalInf
 
     @Override
     public String convertToDatabaseColumn(AdditionalInfo additionalInfo) {
+        if (Objects.isNull(additionalInfo)) {
+            return null;
+        }
         List<Integer> anotherCustomers = additionalInfo.getAnotherCustomers();
         if (Objects.isNull(anotherCustomers)) {
             return null;
