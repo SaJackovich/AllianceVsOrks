@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.alliance.annotation.FunctionCreationTimestamp;
 import com.alliance.converter.AdditionalInfoConverter;
 
 @Entity
@@ -32,9 +35,11 @@ public class SimpleCustomer implements Serializable {
 	private AdditionalInfo additionalInfo;
 
 	@Column
+	@FunctionCreationTimestamp
 	private LocalDateTime sysCreatedDatetime;
 
 	@Column
+	@UpdateTimestamp
 	private LocalDateTime sysUpdatedDatetime;
 
 	public LocalDateTime getSysCreatedDatetime() {

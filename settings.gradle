@@ -18,4 +18,6 @@ include 'enum:domain'
 findProject(':enum:domain')?.name = 'domain'
 include 'enum:converters'
 findProject(':enum:converters')?.name = 'converters'
+include 'general-config:annotation-config'
+findProject(':general-config:annotation-config')?.name = 'annotation-config'
 
