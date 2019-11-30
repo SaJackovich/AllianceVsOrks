@@ -1,0 +1,21 @@
+project(':alliance:main') {
+
+    apply plugin: 'java'
+
+    group 'com.war'
+    version '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile project(':alliance:common-config:annotation-config')
+        compile project(':alliance:construction')
+        compile project(':alliance:enum:converter')
+        compile project(':alliance:unit')
+        compile project(':alliance:web')
+    }
+}
