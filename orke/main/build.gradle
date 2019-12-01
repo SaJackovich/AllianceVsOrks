@@ -16,12 +16,12 @@ dependencies {
     compile 'org.springframework.cloud:spring-cloud-netflix-core'
     compile 'org.springframework.cloud:spring-cloud-starter-consul'
     compile 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
-    compile 'joda-time:joda-time:2.10.1'
+    compile 'joda-time:joda-time'
 
     // MariaDb connecting
     compile 'ch.vorburger.mariaDB4j:mariaDB4j'
     compile 'org.mariadb.jdbc:mariadb-java-client'
     
-    // Connect custom components
+    // Connect components
     compile project(':orke:web')
 }

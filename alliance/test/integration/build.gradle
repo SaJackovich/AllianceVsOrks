@@ -1,17 +1,5 @@
-project(':alliance:test:integration') {
+description=':alliance:test:integration'
 
-    apply plugin: 'java'
-
-    group 'com.war'
-    version '0.0.1-SNAPSHOT'
-
-    sourceCompatibility = 1.8
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        compile project(':alliance:core')
-    }
+dependencies {
+    compile 'junit:junit'
 }

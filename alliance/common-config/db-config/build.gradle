@@ -1,19 +1,7 @@
-project (':alliance:common-config:db-config') {
+description=':alliance:common-config:db-config'
 
-    apply plugin: 'java'
-
-
-    group 'com.war'
-    version '0.0.1-SNAPSHOT'
-
-    sourceCompatibility = 1.8
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        compile project(':alliance:core')
-    }
-
+dependencies {
+    compile 'org.apache.logging.log4j:log4j-to-slf4j'
+    compile 'org.apache.commons:commons-lang3'
+    compile 'org.hibernate:hibernate-core'
 }

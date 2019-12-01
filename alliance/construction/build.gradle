@@ -1,17 +1,7 @@
-project(':alliance:construction') {
+description=':alliance:construction'
 
-    apply plugin: 'java'
-
-    group 'com.war'
-    version '0.0.1-SNAPSHOT'
-
-    sourceCompatibility = 1.8
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        compile project(':alliance:enum:domain')
-    }
+dependencies {
+    compile 'org.hibernate:hibernate-core'
+    
+    compile project(':alliance:enum:domain')
 }
