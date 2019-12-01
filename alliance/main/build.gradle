@@ -17,5 +17,6 @@ project(':alliance:main') {
         compile project(':alliance:enum:converter')
         compile project(':alliance:unit')
         compile project(':alliance:web')
+        compile project(':alliance:core')
     }
 }

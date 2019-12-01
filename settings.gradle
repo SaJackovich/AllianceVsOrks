@@ -1,6 +1,6 @@
 rootProject.name = 'war'
-include ':alliance'
 
+include ':alliance'
 include ':alliance:construction'
 include ':alliance:main'
 include ':alliance:unit'

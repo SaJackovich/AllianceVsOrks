@@ -1,36 +1,15 @@
 plugins {
-	id 'org.springframework.boot'
 	id 'io.spring.dependency-management'
 	id 'java'
 }
 
-group = 'com.war'
+group = 'com.war.orke'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
-bootJar {
-	mainClassName = 'com.war.orke.OrkeApplication'
-}
 
 configurations {
 	developmentOnly
 	runtimeClasspath {
 		extendsFrom developmentOnly
 	}
-}
-
-repositories {
-	mavenCentral()
-}
-
-ext {
-	set('springCloudVersion', "Hoxton.RC2")
-}
-
-dependencies {
-
-}
-
-test {
-	useJUnitPlatform()
 }

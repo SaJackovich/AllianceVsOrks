@@ -1,18 +1,27 @@
-project(':orke:main') {
+description=':orke:main'
 
-    apply plugin: 'java'
+dependencies {
+    // For checking micro-service-health by Consul
+    compile 'io.micrometer:micrometer-core'
+    compile 'org.springframework.boot:spring-boot-actuator-autoconfigure'
 
-    group 'com.war'
-    version '0.0.1-SNAPSHOT'
+    // Download necessary classes
+    compile 'org.hibernate:hibernate-core'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.cloud:spring-cloud-commons'
+    compile 'org.springframework.data:spring-data-jpa'
 
-    sourceCompatibility = 1.8
+    // Starting and connection to Consul by port 8500
+    compile 'org.springframework.cloud:spring-cloud-consul-discovery'
+    compile 'org.springframework.cloud:spring-cloud-netflix-core'
+    compile 'org.springframework.cloud:spring-cloud-starter-consul'
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
+    compile 'joda-time:joda-time:2.10.1'
 
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        compile project(':orke:web')
-        compile project(':orke:core')
-    }
+    // MariaDb connecting
+    compile 'ch.vorburger.mariaDB4j:mariaDB4j'
+    compile 'org.mariadb.jdbc:mariadb-java-client'
+    
+    // Connect custom components
+    compile project(':orke:web')
 }
