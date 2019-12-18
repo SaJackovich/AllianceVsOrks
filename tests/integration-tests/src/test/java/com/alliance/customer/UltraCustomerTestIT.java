@@ -121,18 +121,11 @@ public class UltraCustomerTestIT {
 	}
 
 	@Test
-	public void saveAdditionalInfo() {
-		String expectedInfo = "01020405";
-
-		SimpleCustomer savedCustomer = repository.save(getSimpleCustomer());
-		String additionalInfo = repository.findAdditionalInfoById(savedCustomer.getId());
-
-		assertEquals(expectedInfo, additionalInfo);
-	}
-
-	@Test
 	public void saveLocalDatetime() {
 		SimpleCustomer savedCustomer = repository.save(getSimpleCustomer());
+
+		System.out.println(savedCustomer.getSysCreatedDatetime());
+		System.out.println(savedCustomer.getSysUpdatedDatetime());
 
 		assertNotNull(savedCustomer.getSysCreatedDatetime());
 		assertNotNull(savedCustomer.getSysUpdatedDatetime());

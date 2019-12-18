@@ -1,6 +1,12 @@
 package com.alliance.one;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -20,7 +26,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.alliance.config.ClassesScanConfig;
 import com.alliance.config.MariaDBTestConfig;
 import com.alliance.entity.Animal;
+import com.alliance.entity.Zoo;
 import com.alliance.repository.AnimalRepository;
+import com.alliance.repository.ZooRepository;
+import com.alliance.type.AnimalCondition;
 
 @RunWith(SpringRunner.class)
 @Transactional
@@ -38,14 +47,39 @@ import com.alliance.repository.AnimalRepository;
 public class AnimalTestIT {
 
     @Autowired
-    private AnimalRepository repository;
+    private AnimalRepository animalRepository;
+
+    @Autowired
+    private ZooRepository zooRepository;
 
     @Test
     public void shouldProvideUUID() {
-        Animal animal = new Animal();
-        animal.setName("Cat");
-        Animal saved = repository.save(animal);
+        Animal saved = animalRepository.save(getAnimal("Cat", AnimalCondition.FREE));
         assertNotNull(saved);
+    }
+
+    @Test
+    public void shouldProvideOnlyInCellAnimals() {
+        List<Animal> animals = new ArrayList<>();
+        animals.add(getAnimal("Cat", AnimalCondition.FREE));
+        animals.add(getAnimal("Dog", AnimalCondition.IN_CELL));
+        Zoo zoo = new Zoo();
+        zoo.setAnimals(animals);
+        zoo.setName("Reatch");
+        Zoo saved = zooRepository.save(zoo);
+
+        Optional<Zoo> found = zooRepository.findById(saved.getId());
+
+        assertTrue(found.isPresent());
+        Zoo zoo1 = found.get();
+        assertEquals(2, zoo1.getAnimals().size());
+    }
+
+    private Animal getAnimal(String name, AnimalCondition condition) {
+        Animal animal = new Animal();
+        animal.setName(name);
+        animal.setAnimalCondition(condition);
+        return animal;
     }
 
 }

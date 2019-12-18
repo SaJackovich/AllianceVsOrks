@@ -12,6 +12,7 @@ project(':tests:integration-tests') {
     }
 
     dependencies {
+        compile project(':general-config:entity-config')
         compile project(':enum:converters')
         compile project(':customer')
         compile project(':ultra-customer')

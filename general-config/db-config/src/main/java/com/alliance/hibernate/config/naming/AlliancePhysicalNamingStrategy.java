@@ -57,19 +57,27 @@ public class AlliancePhysicalNamingStrategy implements PhysicalNamingStrategy {
     }
 
     private String join(List<String> parts) {
-        boolean firstPass = true;
         String separator = Strings.EMPTY;
         StringBuilder joined = new StringBuilder();
         for (String part : parts) {
             char firstChar = part.charAt(0);
             String upperChar = String.valueOf(toUpperCase(firstChar));
             part = part.replaceFirst(String.valueOf(firstChar), upperChar);
-            joined.append(separator).append(part);
-            if ( firstPass ) {
-                firstPass = false;
-                separator = "_";
-            }
+            separator = appendWord(part, joined, separator) ? "_" : Strings.EMPTY;
         }
         return joined.toString();
     }
+
+    private boolean appendWord(String part, StringBuilder joined, String separator) {
+        boolean nextIsWord;
+        if (part.equals("_")) {
+            joined.append(part);
+            nextIsWord = false;
+        } else {
+            joined.append(separator).append(part);
+            nextIsWord = true;
+        }
+        return nextIsWord;
+    }
+
 }

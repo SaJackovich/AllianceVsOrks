@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.alliance.type.AnimalCondition;
+
 @Entity
 public class Animal {
 
@@ -30,6 +32,9 @@ public class Animal {
 
     private String name;
 
+    @Column(nullable = false, length = 1)
+    private AnimalCondition animalCondition;
+
     public UUID getId() {
         return id;
     }
@@ -40,5 +45,13 @@ public class Animal {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public AnimalCondition getAnimalCondition() {
+        return animalCondition;
+    }
+
+    public void setAnimalCondition(AnimalCondition animalCondition) {
+        this.animalCondition = animalCondition;
     }
 }
