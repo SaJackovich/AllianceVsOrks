@@ -1,4 +1,0 @@
-rootProject.name = 'orke'
-
-include ':orke:main'
-include ':orke:web'

@@ -28,10 +28,8 @@ public class PricingEndpoint implements InitializingBean {
     private RestTemplate restTemplate = new RestTemplate();
 
     @GetMapping("/customer/{customer-id}/portfolio/{portfolio-id}")
-    public List<String> getPricedPortfolio(
-            @PathVariable("customer-id") Integer customerId,
-            @PathVariable("portfolio-id") Integer portfolioId)
-    {
+    public List<String> getPricedPortfolio(@PathVariable("customer-id") Integer customerId,
+                                           @PathVariable("portfolio-id") Integer portfolioId) {
         List<ServiceInstance> instances
                 = client.getInstances("orke-service");
         ServiceInstance instance
